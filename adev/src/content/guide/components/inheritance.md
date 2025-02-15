@@ -84,6 +84,22 @@ export class CustomListbox extends ListboxBase {
 }
 ```
 
+Or use the `inject` function in the base class. The child instance will then have access to that dependency.
+
+```ts
+@Component({ ... })
+export class ListboxBase {
+  private  element = inject(ElementRef)
+
+  constructor() { }
+}
+
+@Component({ ... })
+export class CustomListbox extends ListboxBase {
+  constructor() { }
+}
+```
+
 ### Overriding lifecycle methods
 
 If a base class defines a lifecycle method, such as `ngOnInit`, a child class that also
